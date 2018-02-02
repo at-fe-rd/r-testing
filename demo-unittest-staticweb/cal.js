@@ -1,9 +1,13 @@
+function Calculator() {
+
+};
 $(document).ready(function() {
   var result = 0;
   var prevEntry = 0;
   var operation = null;
   var currentEntry = '0';
   updateScreen(result);
+  var cal = new Calculator();
   
   $('.button').on('click', function(evt) {
     var buttonPressed = $(this).html();
@@ -36,7 +40,7 @@ $(document).ready(function() {
     } else if (buttonPressed === 'pi') {
       currentEntry = Math.PI;
     } else if (buttonPressed === '=') {
-      currentEntry = operate(prevEntry, currentEntry, operation);
+      currentEntry = cal.operate(prevEntry, currentEntry, operation);
       operation = null;
     }
     
@@ -57,12 +61,13 @@ isOperator = function(value) {
   return value === '/' || value === '*' || value === '+' || value === '-';
 };
 
-operate = function(a, b, operation) {
+Calculator.prototype.operate = function(a, b, operation) {
   a = parseFloat(a);
   b = parseFloat(b);
-  console.log(a, b, operation);
   if (operation === '+') return a + b;
   if (operation === '-') return a - b;
   if (operation === '*') return a * b;
   if (operation === '/') return a / b;
+  if (!operation) return b;
 }
+module.exports = Calculator;
