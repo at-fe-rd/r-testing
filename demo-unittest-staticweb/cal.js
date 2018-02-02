@@ -70,4 +70,9 @@ Calculator.prototype.operate = function(a, b, operation) {
   if (operation === '/') return a / b;
   if (!operation) return b;
 }
-module.exports = Calculator;
+
+try {
+  module.exports = Calculator;
+} catch (e) {
+  
+}
