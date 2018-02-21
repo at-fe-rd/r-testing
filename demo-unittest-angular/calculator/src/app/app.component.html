@@ -1,0 +1,17 @@
+<div class="calculator">
+  <p>Casio</p>
+  <div class="calc-row">
+    <div class="screen">{{displayValue}}</div>
+  </div>
+  <div *ngFor="let col of column">
+    <div class="calc-row">
+      <div *ngFor="let val of col">
+        <div class="button" (click)="onClick(val, $event)">{{val}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="calc-row">
+    <div class="button zero" (click)="onClick('0', $event)">0</div><div class="button decimal" (click)="onClick('.', $event)">.</div><div class="button" (click)="onClick('+', $event)">+</div><div class="button equal" (click)="onClick('=', $event)">=</div>
+  </div>
+</div>
+
