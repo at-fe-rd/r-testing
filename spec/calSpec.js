@@ -21,7 +21,7 @@ describe('operate', function() {
 
   $ = require('jquery');
   global.$ = $;
-  var Cal = require('../cal');
+  var Cal = require('../assets/js/cal');
   const cal = new Cal();
 
   var input = [[1, 1, '+'], [1, 5, '*'], [7, 2, '-'], [16, 4, '/']];
